@@ -1,0 +1,59 @@
+
+:root {
+    --principal-negro: #37353E;
+    --fondo-gris: #ebebeb;
+    --fondo-gris-oscuro: #b1b1b1;
+}
+/*Area de estilo del titulo*/
+.title-container .title{
+    color: var(--principal-negro);
+    font-family: "Playfair Display", serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.title-container .title:hover{
+    transform: scale(1.05);
+}
+
+/*Area del formulario*/
+.container .form-content{
+  background-color: var(--principal-negro);
+  box-shadow: 5px 5px 5px 5px !important;
+  border-radius: 5%;
+  
+}
+
+.container .form-content .lengend-title {
+    color: var(--fondo-gris);
+    font-family: 'Playfair Display', sans-serif;
+}
+
+.container .form-content .text-decoration-none {
+    color: var(--fondo-gris-oscuro);
+}
+
+.container .form-content .btn {
+    color: var(--principal-negro);
+    width: 12rem;
+    transition: 0.2s ease;
+}
+
+.container .form-content .form-control{
+    width: 20rem;
+}
+
+
+.container .form-content .btn:hover{
+ background-color: var(--principal-negro) !important;
+ color: var(--fondo-gris-oscuro) !important;
+ border-color: var(--fondo-gris);
+ transform: scale(1.05);
+
+}
+
+.link-logo{
+    text-decoration: none;
+}

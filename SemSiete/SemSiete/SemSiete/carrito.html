@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">MoneyLess</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav-icons-container d-flex flex-row">
+                <div class="nav-item-imgcontainer">
+                    <a href="login.html">
+                        <img class="nav-item-img" src="img/iconos/usuario.png" alt="Usuario">
+                    </a>
+                </div>
+                <div class="nav-item-imgcontainer ms-3">
+                    <img class="nav-item-img" src="img/iconos/carrito.png" alt="Carrito">
+                    <div class="cart-badge" id="cart-badge" style="display: none;">0</div>
+                </div>
+            </div>
+    </nav>
+
+    <div class="container-carrito">
+        <h1 class="text-center temporadatexto py-5">Resumen de la compra</h1>
+        <div id="total-carrito" class="total-carrito" style="display: none;">
+            <h2>Total de tu compra </h2>
+            <div class="total-precio" id="total-precio">$0</div>
+            <p class="mt-2 text-muted">Envio gratuito en compra mayores de $60</p>
+        </div>
+
+        <div id="productos-carrito">
+        </div>
+
+        <div class="acciones-carrito">
+            <a href="home.html" class="btn-continuar">
+                ← Continuar Comprando
+            </a>
+            <button class="btn-vaciar" onclick="vaciarCarrito()" id="btn-vaciar" style="display: none;">
+                Vaciar Carrito
+            </button>
+            <button class="btn-pagar" id="btnPagar" onclick="procesarPago()">
+                💳 Pagar Carrito
+            </button>
+        </div>
+    </div>
+
+    <div id="miModal" class="modal-custom">
+        <div class="modal-content-custom">
+            <span class="close-modal">&times;</span>
+
+            <!-- Contenido original del formulario -->
+            <section id="formContent" class="p-4 p-md-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-5">
+                        <div class="card rounded-3">
+                            <div class="card-body p-4">
+                                <div class="text-center mb-4">
+                                    <h3>Pasarela de Pago</h3>
+                                    <h6>Se necesita una forma de pago para continuar con la compra</h6>
+                                </div>
+                                <form id="formPago">
+
+                                    <!-- Campos de tarjeta -->
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="nombreTitular" class="form-control form-control-lg"
+                                            placeholder="Rodrigo Armijo...." />
+                                        <label class="form-label" for="nombreTitular">Nombre del titular</label>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-6">
+                                            <div class="form-outline">
+                                                <input type="text" id="numeroTarjeta"
+                                                    class="form-control form-control-lg"
+                                                    placeholder="1234 5678 1234 5678" />
+                                                <label class="form-label" for="numeroTarjeta">Número de tarjeta</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-outline">
+                                                <input type="text" id="fechaExpiracion"
+                                                    class="form-control form-control-lg" placeholder="MM/YYYY" />
+                                                <label class="form-label" for="fechaExpiracion">Fecha de
+                                                    expiración</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-outline">
+                                                <input type="password" id="cvv" class="form-control form-control-lg"
+                                                    placeholder="Cvv" />
+                                                <label class="form-label" for="cvv">CVV</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-dark btn-lg btn-block"
+                                        onclick="validarPago()">Realizar Pago</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contenido de éxito oculto -->
+            <section id="successContent" class="p-4 p-md-5" style="display:none; text-align:center;">
+                <div class="checkmark">
+                    &#10004;
+                </div>
+                <h3>Compra Completada</h3>
+                <p>Gracias por su compra.</p>
+            </section>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="user.js"></script>
+    <script src="carritoManager.js"></script>
+    <script src="carrito.js"></script>
+</body>
+
+</html>
