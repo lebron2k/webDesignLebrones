@@ -24,7 +24,8 @@ document.getElementById("form-login")?.addEventListener("submit", function(e) {
 
 //Verficando que el correo ya este registrado
 function crearUsuario(nombre, email, password, confirmPassword) {
-  if (password === confirmPassword) {
+  let seguridad=8
+  if (password === confirmPassword && password.length >= seguridad) {
    
     if (usuarios.find(user => user.email === email)) {
       const errorPopup = document.getElementById("popup-error");
@@ -53,7 +54,7 @@ function crearUsuario(nombre, email, password, confirmPassword) {
   } else {
     const errorPopup = document.getElementById("popup-error");
     errorPopup.querySelector("h3").textContent = "Error!";
-    errorPopup.querySelector("p").textContent = "Las contraseñas no coinciden";
+    errorPopup.querySelector("p").textContent = "Las contraseñas no cumple con los parametros";
     mostrarError();
   }
 }
