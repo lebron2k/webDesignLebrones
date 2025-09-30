@@ -1,5 +1,4 @@
 
-
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 document.getElementById("form-registro")?.addEventListener("submit", function(e) {
@@ -22,11 +21,16 @@ document.getElementById("form-login")?.addEventListener("submit", function(e) {
   inicioSesion(a, b);
 });
 
+
+//Verficando que el correo ya este registrado
 function crearUsuario(nombre, email, password, confirmPassword) {
   if (password === confirmPassword) {
    
     if (usuarios.find(user => user.email === email)) {
-      alert("Este correo ya está registrado");
+      const errorPopup = document.getElementById("popup-error");
+      errorPopup.querySelector("h3").textContent = "Error!";
+      errorPopup.querySelector("p").textContent = "Este correo ya está registrado";
+      mostrarError();
       return;
     }
 
@@ -47,6 +51,9 @@ function crearUsuario(nombre, email, password, confirmPassword) {
       }
     }, 2000);
   } else {
+    const errorPopup = document.getElementById("popup-error");
+    errorPopup.querySelector("h3").textContent = "Error!";
+    errorPopup.querySelector("p").textContent = "Las contraseñas no coinciden";
     mostrarError();
   }
 }
@@ -187,6 +194,36 @@ function cerrarError() {
   document.getElementById("popup-error").style.display = "none";
 }
 
+
+function verificarPassword() {
+  const password = document.getElementById("password").value;
+  const passwordStrength = document.getElementById("password-strength");
+  const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+
+  let messages = [];
+
+  if (password.length > 0) {
+    if (password.length < 8) {
+      messages.push("Mínimo 8 caracteres.");
+    }
+
+    if (!specialCharRegex.test(password)) {
+      messages.push("Debe contener un caracter especial.");
+    }
+  }
+
+  if (messages.length > 0) {
+    passwordStrength.textContent = messages.join(" ");
+    passwordStrength.style.color = "white";
+  } else if (password.length > 0) {
+    passwordStrength.textContent = "Contraseña segura.";
+    passwordStrength.style.color = "white";
+  } else {
+    passwordStrength.textContent = "";
+  }
+}
+
+document.getElementById("password")?.addEventListener("input", verificarPassword);
 
 // Exportar funciones para uso global
 window.crearUsuario = crearUsuario;
