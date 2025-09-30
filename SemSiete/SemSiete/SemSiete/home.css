@@ -15,7 +15,6 @@
     margin: 0 auto;
 }
 
-/* NAVBAR RESPONSIVA */
 .navbar {
     position: fixed;
     top: 0;
@@ -179,14 +178,10 @@
 
 .product {
     position: relative;
-    /* Necesario para que .specifies se posicione relativo al card */
-    width: 100%;
-    /* Que ocupe el ancho de la columna */
-    max-width: 300px;
-    /* Limita el ancho */
+    width: 100%;  
+    max-width: 300px; 
     height: 400px;
     margin: 20px auto;
-    /* Centra y da separación */
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 30px;
     overflow: hidden;
@@ -195,7 +190,6 @@
 
 .product .imgbox {
     height: 60%;
-    /* Solo parte superior de la tarjeta */
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -338,7 +332,6 @@ ul.colors li:nth-child(2) {
      color: var(--principal-negro);
  }
 
- /* Producto en carrito */
  .producto-carrito {
      background: white;
      border-radius: 20px;
@@ -532,7 +525,7 @@ ul.colors li:nth-child(2) {
      transform: translateY(-2px);
  }
 
- /* Carrito vacío */
+
  .carrito-vacio {
      text-align: center;
      padding: 4rem 2rem;
@@ -559,7 +552,7 @@ ul.colors li:nth-child(2) {
      margin-bottom: 2rem;
  }
 
- /* Botones de acción */
+ 
  .acciones-carrito {
      display: flex;
      justify-content: center;
@@ -605,7 +598,7 @@ ul.colors li:nth-child(2) {
      transform: translateY(-2px);
  }
 
- /* Total del carrito */
+ 
  .total-carrito {
      background: white;
      border-radius: 20px;
@@ -627,7 +620,7 @@ ul.colors li:nth-child(2) {
      color: var(--principal-negro);
  }
 
- /* Animaciones */
+
  @keyframes fadeInUp {
      from {
          opacity: 0;
@@ -666,7 +659,7 @@ ul.colors li:nth-child(2) {
      animation: slideOut 0.5s ease forwards;
  }
 
- /* Responsive */
+
  @media (max-width: 768px) {
      .producto-carrito {
          flex-direction: column;
@@ -739,4 +732,33 @@ ul.colors li:nth-child(2) {
 .nav-item-imgcontainer {
     position: relative;
     cursor: pointer;
+}
+
+#carouselMasVendidos {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  border-radius: 50%;
+}
+
+footer a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff !important;
+}
+
+footer img {
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.2);
 }

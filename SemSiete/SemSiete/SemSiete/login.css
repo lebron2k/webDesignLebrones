@@ -4,7 +4,7 @@
     --fondo-gris: #ebebeb;
     --fondo-gris-oscuro: #b1b1b1;
 }
-/*Area de estilo del titulo*/
+
 .title-container .title{
     color: var(--principal-negro);
     font-family: "Playfair Display", serif;
@@ -18,7 +18,7 @@
     transform: scale(1.05);
 }
 
-/*Area del formulario*/
+
 .container .form-content{
   background-color: var(--principal-negro);
   box-shadow: 5px 5px 5px 5px !important;
